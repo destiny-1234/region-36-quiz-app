@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 33% 96%;
+    --foreground: 222 23% 16%;
+    --card: 42 33% 98%;
+    --card-foreground: 222 23% 16%;
+    --popover: 42 33% 98%;
+    --popover-foreground: 222 23% 16%;
+    --primary: 222 44% 16%;
+    --primary-foreground: 42 33% 96%;
+    --secondary: 42 20% 92%;
+    --secondary-foreground: 222 23% 16%;
+    --muted: 42 15% 90%;
+    --muted-foreground: 222 10% 40%;
+    --accent: 44 74% 47%;
+    --accent-foreground: 222 23% 16%;
+    --destructive: 358 62% 34%;
+    --destructive-foreground: 42 33% 96%;
+    --border: 42 18% 85%;
+    --input: 42 18% 85%;
+    --ring: 44 74% 47%;
+    --chart-1: 222 44% 24%;
+    --chart-2: 44 74% 47%;
+    --chart-3: 358 62% 34%;
+    --chart-4: 173 35% 45%;
+    --chart-5: 42 20% 55%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: #FBF7EF;
+    color: #1F2430;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-fraunces), Georgia, serif;
+    color: #16213E;
+    line-height: 1.2;
+  }
+  body, p, span, div, button, input, select, textarea, label, a, li, td, th {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-navy { color: #16213E; }
+  .bg-navy { background-color: #16213E; }
+  .text-gold { color: #C9A227; }
+  .bg-gold { background-color: #C9A227; }
+  .text-cream { color: #FBF7EF; }
+  .bg-cream { background-color: #FBF7EF; }
+  .text-ink { color: #1F2430; }
+  .bg-ink { background-color: #1F2430; }
+  .text-crest { color: #8C2F24; }
+  .bg-crest { background-color: #8C2F24; }
+  .border-navy { border-color: #16213E; }
+  .border-gold { border-color: #C9A227; }
+
+  .wax-seal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #C9A227;
+    color: #16213E;
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-weight: 700;
+    box-shadow: inset 0 0 0 2px #A88A21, inset 0 0 0 6px #C9A227;
+  }
+
+  .wax-seal-navy {
+    background: #16213E;
+    color: #C9A227;
+    box-shadow: inset 0 0 0 2px #121B33, inset 0 0 0 6px #16213E;
+  }
+
+  .large-text-mode {
+    font-size: 1.25rem;
+  }
+  .large-text-mode h1 { font-size: 2.5rem; }
+  .large-text-mode h2 { font-size: 2rem; }
+  .large-text-mode h3 { font-size: 1.75rem; }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; }
+}
