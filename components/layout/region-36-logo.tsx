@@ -6,46 +6,46 @@ interface LogoProps {
   size?: number;
 }
 
-/**
- * REGION_36_LOGO placeholder.
- * Replace the placeholder below with the official RCCG Region 36 crest image.
- * The image file should be placed at public/images/logos/rccg-region-36-crest.png
- * Then uncomment the Image import below and swap the placeholder JSX.
- */
+// REGION_36_LOGO — the official crest, at public/images/logos/image.png.
+// To swap in a different file later, replace that file and this path stays
+// the same, or rename both together.
 export function Region36Logo({ className, size = 48 }: LogoProps) {
   return (
     <div
       className={cn(
-        'flex items-center justify-center rounded-full border-2 border-gold bg-navy',
+        'relative flex items-center justify-center overflow-hidden rounded-full border-2 border-gold bg-white',
         className
       )}
       style={{ width: size, height: size }}
-      aria-label="RCCG Region 36 crest placeholder"
     >
-      <span
-        className="font-serif font-bold text-gold"
-        style={{ fontSize: size * 0.28 }}
-      >
-        R36
-      </span>
+      <Image
+        src="/images/logos/image.png"
+        alt="RCCG Region 36 crest"
+        width={size}
+        height={size}
+        className="h-full w-full object-contain p-0.5"
+        priority
+      />
     </div>
   );
 }
 
-/**
- * REGIONAL_COORDINATOR_PHOTO placeholder.
- * Replace with the official coordinator photo at public/images/photos/regional-coordinator.jpg
- */
+// REGIONAL_COORDINATOR_PHOTO — at public/images/photos/image.png.
+// Swap that file for the real coordinator portrait when it's supplied.
 export function RegionalCoordinatorPhoto({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'flex items-center justify-center rounded-lg border-2 border-navy bg-cream-dark',
+        'relative overflow-hidden rounded-lg border-2 border-navy bg-cream-dark',
         className
       )}
-      aria-label="Regional Coordinator photo placeholder"
     >
-      <span className="font-serif text-navy/40">Photo</span>
+      <Image
+        src="/images/photos/image.png"
+        alt="Regional Coordinator"
+        fill
+        className="object-cover"
+      />
     </div>
   );
 }
