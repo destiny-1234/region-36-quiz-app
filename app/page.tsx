@@ -40,10 +40,10 @@ export default function HomePage() {
                 <Button asChild size="lg" className="bg-gold text-navy hover:bg-gold-600">
                   <Link href="/register/child">Register a child</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-gold/40 text-cream hover:bg-navy-500 hover:text-gold">
+                <Button asChild size="lg" variant="outline" className="border-gold/40 bg-transparent text-cream hover:bg-navy-500 hover:text-gold">
                   <Link href="/register/coordinator">Coordinator sign-up</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-cream/20 text-cream hover:bg-navy-500">
+                <Button asChild size="lg" variant="outline" className="border-cream/20 bg-transparent text-cream hover:bg-navy-500">
                   <Link href="/signin">Parent login</Link>
                 </Button>
               </div>
