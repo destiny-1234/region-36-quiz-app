@@ -14,7 +14,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { CoordinatorData } from '@/app/coordinator/page';
-import { AGE_CATEGORIES, AGE_CATEGORY_LABELS, AgeCategory, QUALIFICATION_STATUS_LABELS } from '@/lib/constants';
+import { AGE_CATEGORIES, AGE_CATEGORY_LABELS, AgeCategory, QUALIFICATION_STATUS_LABELS, REGION_ID } from '@/lib/constants';
 import { UserPlus, Upload, Loader2, Check, X, Ban, Printer } from 'lucide-react';
 
 interface ChildRecord {
@@ -324,7 +324,7 @@ function AddChildDialog({ open, onOpenChange, coordinator, onAdded }: {
       area_id: coordinator.area_id,
       zone_id: coordinator.zone_id,
       province_id: coordinator.province_id,
-      region_id: coordinator.region_id || 'a0000000-0000-0000-0000-000000000036',
+      region_id: coordinator.region_id || REGION_ID,
     };
 
     // If coordinator is at a higher level, we need to resolve the parish
@@ -483,7 +483,7 @@ function CSVImportDialog({ open, onOpenChange, coordinator, onImported }: {
         area_id: coordinator.area_id,
         zone_id: coordinator.zone_id,
         province_id: coordinator.province_id,
-        region_id: coordinator.region_id || 'a0000000-0000-0000-0000-000000000036',
+        region_id: coordinator.region_id || REGION_ID,
         parent_name: row.parent_name,
         parent_email: row.parent_email.toLowerCase(),
         parent_phone: row.parent_phone || null,
