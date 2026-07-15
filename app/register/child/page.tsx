@@ -12,7 +12,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Checkbox } from '@/components/ui/checkbox';
 import { CascadingLocationDropdown, LocationSelection } from '@/components/shared/cascading-location-dropdown';
 import { useToast } from '@/hooks/use-toast';
-import { computeAgeCategory, AGE_CATEGORY_LABELS } from '@/lib/constants';
+import { computeAgeCategory, AGE_CATEGORY_LABELS, REGION_ID } from '@/lib/constants';
 import { Loader2 } from 'lucide-react';
 
 export default function RegisterChildPage() {
@@ -136,7 +136,7 @@ export default function RegisterChildPage() {
       area_id: location.areaId,
       zone_id: location.zoneId,
       province_id: location.provinceId,
-      region_id: 'a0000000-0000-0000-0000-000000000036',
+      region_id: REGION_ID,
       parent_name: parentName.trim(),
       parent_email: email,
       parent_phone: parentPhone.trim() || null,
