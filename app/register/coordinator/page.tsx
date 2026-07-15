@@ -13,7 +13,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { CascadingLocationDropdown, LocationSelection } from '@/components/shared/cascading-location-dropdown';
 import { useToast } from '@/hooks/use-toast';
-import { COORDINATOR_LEVELS, COORDINATOR_LEVEL_LABELS, CoordinatorLevel } from '@/lib/constants';
+import { SELF_REGISTER_COORDINATOR_LEVELS, COORDINATOR_LEVEL_LABELS, CoordinatorLevel, REGION_ID } from '@/lib/constants';
 import { Loader2 } from 'lucide-react';
 
 export default function RegisterCoordinatorPage() {
@@ -118,7 +118,7 @@ export default function RegisterCoordinatorPage() {
     else if (level === 'area') coordinatorData.area_id = location.areaId;
     else if (level === 'zone') coordinatorData.zone_id = location.zoneId;
     else if (level === 'province') coordinatorData.province_id = location.provinceId;
-    else if (level === 'region') coordinatorData.region_id = 'a0000000-0000-0000-0000-000000000036';
+    else if (level === 'region') coordinatorData.region_id = REGION_ID;
 
     const { error: coordError } = await supabase.from('coordinators').insert(coordinatorData);
 
@@ -227,7 +227,7 @@ export default function RegisterCoordinatorPage() {
                 }}
                 className="grid grid-cols-2 gap-2 sm:grid-cols-5"
               >
-                {COORDINATOR_LEVELS.map((lvl) => (
+                {SELF_REGISTER_COORDINATOR_LEVELS.map((lvl) => (
                   <div key={lvl} className="flex items-center gap-2">
                     <RadioGroupItem value={lvl} id={`level-${lvl}`} />
                     <Label htmlFor={`level-${lvl}`} className="text-sm cursor-pointer">
