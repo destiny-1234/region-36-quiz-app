@@ -10,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
+import { REGION_ID } from '@/lib/constants';
 import { Plus, Trash2, Edit, ChevronRight, Loader2, Building2 } from 'lucide-react';
 
 type Level = 'province' | 'zone' | 'area' | 'parish';
@@ -62,7 +63,7 @@ export function AdminStructure() {
 
     if (addLevel === 'province') {
       table = 'provinces';
-      data.region_id = 'a0000000-0000-0000-0000-000000000036';
+      data.region_id = REGION_ID;
     } else if (addLevel === 'zone') {
       table = 'zones';
       data.province_id = addParentId;
