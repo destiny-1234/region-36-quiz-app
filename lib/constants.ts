@@ -1,3 +1,8 @@
+// Single source of truth for the seeded Region 36 row's id — used to be
+// hardcoded as a literal string in six different files, which meant a
+// re-seed would silently break registration everywhere. Fix once, here.
+export const REGION_ID = 'a0000000-0000-0000-0000-000000000036';
+
 export type AgeCategory = '0-5' | '6-8' | '9-12' | '13-15' | '16-19';
 
 export type StageLevel = 'parish' | 'area' | 'zonal' | 'provincial' | 'regional';
@@ -37,6 +42,11 @@ export const STAGE_ORDER: Record<StageLevel, number> = {
 };
 
 export const COORDINATOR_LEVELS: CoordinatorLevel[] = ['parish', 'area', 'zone', 'province', 'region'];
+
+// Region Admin is seeded manually, never self-registered (per the brief and
+// enforced server-side via is_region_admin(), which checks user_profiles.role
+// only — never coordinators.level). Use this list on the public sign-up form.
+export const SELF_REGISTER_COORDINATOR_LEVELS: CoordinatorLevel[] = ['parish', 'area', 'zone', 'province'];
 
 export const COORDINATOR_LEVEL_LABELS: Record<CoordinatorLevel, string> = {
   parish: 'Parish',
