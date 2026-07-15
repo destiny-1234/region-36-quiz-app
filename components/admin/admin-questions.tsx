@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
-import { AGE_CATEGORIES, AGE_CATEGORY_LABELS, AgeCategory, STAGE_LEVELS, STAGE_LABELS, StageLevel, QuestionType } from '@/lib/constants';
+import { AGE_CATEGORIES, AGE_CATEGORY_LABELS, AgeCategory, STAGE_LEVELS, STAGE_LABELS, StageLevel, QuestionType, REGION_ID } from '@/lib/constants';
 import { Plus, Trash2, Edit, Loader2, Eye } from 'lucide-react';
 
 interface QuestionRecord {
@@ -221,7 +221,7 @@ function RegionalQuestionDialog({ open, onOpenChange, seasonId, editing, onSaved
     if (!text.trim()) { setError('Question text is required.'); return; }
 
     setLoading(true);
-    const regionId = 'a0000000-0000-0000-0000-000000000036';
+    const regionId = REGION_ID;
     const data: Record<string, unknown> = {
       season_id: seasonId,
       stage_level: 'regional',
